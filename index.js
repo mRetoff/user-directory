@@ -1,9 +1,11 @@
 const button1 = document.querySelector('button.greeting')
 
 function changeText(ev) {
-    //const text = document.querySelector('#Heading1')
-    //text.textContent = 'Directory'
-    ev.target.textContent = 'Click'
+    const text = document.querySelector('#Heading1')
+    const text2 = document.querySelector('#Heading2')
+    text.textContent = 'Directory'
+    text2.textContent = 'New Heading'
+    //ev.target.textContent = 'Click'
 }
 
 button1.addEventListener('click', changeText)
