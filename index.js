@@ -1,7 +1,8 @@
-const button2 = document.querySelector('button.greeting')
+const button1 = document.querySelector('button.greeting')
 
 function changeText() {
-    alert('yeah');
+    const text = document.querySelector('p.greeting')
+    text.textContent = 'You done clicked'
 }
 
-button2.addEventListener('click', changeText)
+button1.addEventListener('click', changeText)
