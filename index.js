@@ -1,6 +1,6 @@
 const button1 = document.querySelector('button.greeting')
 
-function changeText(ev) {
+function changeText() {
     const text = document.querySelector('#Heading1')
     const text2 = document.querySelector('#Heading2')
     text.textContent = 'Directory'
