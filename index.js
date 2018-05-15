@@ -6,7 +6,10 @@ const handleSubmit = function(ev) {
     const f = ev.target
     const user = f.name.value
     const age = f.age.value
-    userList.innerHTML += `<p>${user}, ${age}</p>`
+    
+    const p = document.createElement('p')
+    p.textContent = `${user}, ${age}`
+    userList.appendChild(p)
 
     f.reset()
     f.name.focus()
