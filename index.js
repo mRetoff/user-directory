@@ -5,6 +5,8 @@ const handleSubmit = function(ev) {
     ev.preventDefault()
     const f = ev.target
     const user = f.name.value
-    userList.textContent += " " + user
+    userList.textContent += ' ' + user
+
+    f.name.value = ''
 }
 form.addEventListener('submit', handleSubmit)
