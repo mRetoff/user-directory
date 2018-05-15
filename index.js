@@ -6,9 +6,11 @@ const handleSubmit = function(ev) {
     const f = ev.target
     const user = f.name.value
     const age = f.age.value
-    
+    const color = f.color.value
+
     const p = document.createElement('p')
-    p.textContent = `${user}, ${age}`
+    p.style.backgroundColor = color
+    p.textContent = `${user}, ${age}, ${color}`
     userList.appendChild(p)
 
     f.reset()
