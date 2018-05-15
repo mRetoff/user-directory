@@ -10,7 +10,7 @@ const handleSubmit = function(ev) {
 
     const p = document.createElement('p')
     p.style.backgroundColor = color
-    p.textContent = `${user}, ${age}, ${color}`
+    p.textContent = `${user}, ${age}`
     userList.appendChild(p)
 
     f.reset()
