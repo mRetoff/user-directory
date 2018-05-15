@@ -5,7 +5,7 @@ const handleSubmit = function(ev) {
     ev.preventDefault()
     const f = ev.target
     const user = f.name.value
-    userList.textContent += ' ' + user
+    userList.innerHTML += '<p>' + user + '</p>'
 
     f.name.value = ''
 }
