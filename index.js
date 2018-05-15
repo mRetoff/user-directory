@@ -1,26 +1,15 @@
 const form = document.querySelector("#userForm")
+let user, age, color
 
+//Processes data when info is submitted
 const handleSubmit = function(ev) {
     ev.preventDefault()
     const f = ev.target
-    const user = f.name.value
-    const age = f.age.value
-    const color = f.color.value
-    
-    //Add items to list and add list to the page
-    const renName = renderListItem(user)
-    const renAge = renderListItem(age)
+    user = f.name.value
+    age = f.age.value
+    color = f.color.value
 
-    const renColor = renderListItem(color)
-    const temp = renderColor(color)
-    renColor.appendChild(temp)
-
-    const userList = document.querySelector('#users')
-    const list = document.createElement('ul')
-    list.appendChild(renName)
-    list.appendChild(renAge)
-    list.appendChild(renColor)
-    userList.appendChild(list)
+    renderList()
 
     f.reset()
     f.name.focus()
@@ -57,7 +46,20 @@ function renderListItem(item) {
 
 //Creates a list of stats for each user
 function renderList() {
+    const renName = renderListItem(user)
+    const renAge = renderListItem(age)
 
+    const renColor = renderListItem(color)
+    const temp = renderColor(color)
+    renColor.appendChild(temp)
+
+    //Create list and add elements to it
+    const userList = document.querySelector('#users')
+    const list = document.createElement('ul')
+    list.appendChild(renName)
+    list.appendChild(renAge)
+    list.appendChild(renColor)
+    userList.appendChild(list)
 }
 
 form.addEventListener('submit', handleSubmit)
