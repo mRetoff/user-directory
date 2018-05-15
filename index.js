@@ -6,24 +6,20 @@ const handleSubmit = function(ev) {
     const user = f.name.value
     const age = f.age.value
     const color = f.color.value
-
-    //Create separate items for list
-    const nameItem = document.createElement('li')
-    nameItem.textContent = `Name: ${user}`
-
-    const ageItem = document.createElement('li')
-    ageItem.textContent = `Age: ${age}`
-
-    const colorItem = document.createElement('li')
-    colorItem.textContent = 'Favorite Color:'
-    colorItem.appendChild(renderColor(color))
     
     //Add items to list and add list to the page
+    const renName = renderListItem(user)
+    const renAge = renderListItem(age)
+
+    const renColor = renderListItem(color)
+    const temp = renderColor(color)
+    renColor.appendChild(temp)
+
     const userList = document.querySelector('#users')
     const list = document.createElement('ul')
-    list.appendChild(nameItem)
-    list.appendChild(ageItem)
-    list.appendChild(colorItem)
+    list.appendChild(renName)
+    list.appendChild(renAge)
+    list.appendChild(renColor)
     userList.appendChild(list)
 
     f.reset()
@@ -41,7 +37,22 @@ function renderColor(c) {
 
 //Creates a list item for each item
 function renderListItem(item) {
-
+    //Check for age
+    if(Number.isInteger(+item)) {
+        const ageItem = document.createElement('li')
+        ageItem.textContent = `Age: ${item}`
+        return ageItem
+    //Check for color
+    } else if(item.substring(0,1) === "#" && item.length === 7) {
+        const colorItem = document.createElement('li')
+        colorItem.textContent = 'Favorite Color:'
+        return colorItem
+    //Else name
+    } else {
+        const nameItem = document.createElement('li')
+        nameItem.textContent = `Name: ${item}`
+        return nameItem
+    }
 }
 
 //Creates a list of stats for each user
