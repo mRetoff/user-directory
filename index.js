@@ -8,7 +8,7 @@ const handleSubmit = function(ev) {
     const age = f.age.value
     userList.innerHTML += '<p>' + user + ', ' + age + '</p>'
 
-    f.name.value = ''
-    f.age.value = ''
+    f.reset()
+    f.name.focus()
 }
 form.addEventListener('submit', handleSubmit)
