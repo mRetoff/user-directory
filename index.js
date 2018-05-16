@@ -33,9 +33,7 @@ function renderListItem(label, value) {
 
 //Creates a list of stats for each user
 function renderList() {
-    //Create each list item
-    const renName = renderListItem('Name', user)
-    const renAge = renderListItem('Age', age)
+    //Create color
     const renColor = renderListItem('Favorite Color', color)
     const temp = renderColor(color)
     renColor.appendChild(temp)
@@ -43,8 +41,8 @@ function renderList() {
     //Create list and add elements to it
     const userList = document.querySelector('#users')
     const list = document.createElement('ul')
-    list.appendChild(renName)
-    list.appendChild(renAge)
+    list.appendChild(renderListItem('Name', user))
+    list.appendChild(renderListItem('Age', age))
     list.appendChild(renColor)
     userList.appendChild(list)
 }
