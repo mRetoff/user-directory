@@ -43,7 +43,7 @@ function renderList(data) {
     const list = document.createElement('ul')
 
     const labels = Object.keys(data)
-    labels.forEach(function(label) {
+    labels.forEach(label => {
         const item = renderListItem(label, data[label])
         list.appendChild(item)
     })
