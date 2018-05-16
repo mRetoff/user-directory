@@ -12,9 +12,14 @@ main {
 form {
     background-color: #eeeeee;
     padding: 1rem;
-    border: 1px solid #cccccc
+    border: 1px solid #cccccc;
 }
 
 dl > li {
     list-style: none;
+    padding: 1rem;
+}
+
+dl:nth-of-type(even) {
+    background-color: #cccccc;
 }
