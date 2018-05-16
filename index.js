@@ -27,23 +27,23 @@ function renderColor(c) {
 //Creates a list item for each item
 function renderListItem(label, value) {
     const item = document.createElement('li')
-    item.textContent = `${label}: ${value}`
+    item.textContent = `${label}: `
+    try {
+        item.appendChild(value)
+    } catch {
+        item.textContent += value
+    }
     return item
 }
 
 //Creates a list of stats for each user
 function renderList() {
-    //Create color
-    const renColor = renderListItem('Favorite Color', color)
-    const temp = renderColor(color)
-    renColor.appendChild(temp)
-
-    //Create list and add elements to it
     const userList = document.querySelector('#users')
     const list = document.createElement('ul')
+    
     list.appendChild(renderListItem('Name', user))
     list.appendChild(renderListItem('Age', age))
-    list.appendChild(renColor)
+    list.appendChild(renderListItem('Favorite Color', renderColor(color)))
     userList.appendChild(list)
 }
 
