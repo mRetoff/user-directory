@@ -32,7 +32,6 @@ function renderListItem(label, value) {
     const desc = document.createElement('dd')
 
     term.textContent = label
-    //item.textContent = `${label}: `
     try {
         desc.appendChild(value)
     } catch {
