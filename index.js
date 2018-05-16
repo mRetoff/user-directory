@@ -25,31 +25,18 @@ function renderColor(c) {
 }
 
 //Creates a list item for each item
-function renderListItem(item) {
-    //Check for age
-    if(Number.isInteger(+item)) {
-        const ageItem = document.createElement('li')
-        ageItem.textContent = `Age: ${item}`
-        return ageItem
-    //Check for color
-    } else if(item.substring(0,1) === "#") {
-        const colorItem = document.createElement('li')
-        colorItem.textContent = 'Favorite Color:'
-        return colorItem
-    //Else name
-    } else {
-        const nameItem = document.createElement('li')
-        nameItem.textContent = `Name: ${item}`
-        return nameItem
-    }
+function renderListItem(label, value) {
+    const item = document.createElement('li')
+    item.textContent = `${label}: ${value}`
+    return item
 }
 
 //Creates a list of stats for each user
 function renderList() {
     //Create each list item
-    const renName = renderListItem(user)
-    const renAge = renderListItem(age)
-    const renColor = renderListItem(color)
+    const renName = renderListItem('Name', user)
+    const renAge = renderListItem('Age', age)
+    const renColor = renderListItem('Favorite Color', color)
     const temp = renderColor(color)
     renColor.appendChild(temp)
 
