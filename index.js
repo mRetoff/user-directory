@@ -1,15 +1,16 @@
 const form = document.querySelector("#userForm")
-let user, age, color
 
 //Processes data when info is submitted
 const handleSubmit = function(ev) {
     ev.preventDefault()
     const f = ev.target
-    user = f.name.value
-    age = f.age.value
-    color = f.color.value
+    const user = {
+        userName: f.name.value,
+        age: f.age.value,
+        color: renderColor(f.color.value)
+    }
 
-    renderList()
+    renderList(user)
 
     f.reset()
     f.name.focus()
@@ -37,13 +38,15 @@ function renderListItem(label, value) {
 }
 
 //Creates a list of stats for each user
-function renderList() {
+function renderList(data) {
     const userList = document.querySelector('#users')
     const list = document.createElement('ul')
-    
-    list.appendChild(renderListItem('Name', user))
-    list.appendChild(renderListItem('Age', age))
-    list.appendChild(renderListItem('Favorite Color', renderColor(color)))
+
+    const labels = Object.keys(data)
+    labels.forEach(function(label) {
+        const item = renderListItem(label, data[label])
+        list.appendChild(item)
+    })
     userList.appendChild(list)
 }
 
