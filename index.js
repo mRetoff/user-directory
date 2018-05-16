@@ -32,7 +32,7 @@ function renderListItem(item) {
         ageItem.textContent = `Age: ${item}`
         return ageItem
     //Check for color
-    } else if(item.substring(0,1) === "#" && item.length === 7) {
+    } else if(item.substring(0,1) === "#") {
         const colorItem = document.createElement('li')
         colorItem.textContent = 'Favorite Color:'
         return colorItem
@@ -46,9 +46,9 @@ function renderListItem(item) {
 
 //Creates a list of stats for each user
 function renderList() {
+    //Create each list item
     const renName = renderListItem(user)
     const renAge = renderListItem(age)
-
     const renColor = renderListItem(color)
     const temp = renderColor(color)
     renColor.appendChild(temp)
