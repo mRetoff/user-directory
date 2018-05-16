@@ -28,19 +28,26 @@ function renderColor(c) {
 //Creates a list item for each item
 function renderListItem(label, value) {
     const item = document.createElement('li')
-    item.textContent = `${label}: `
+    const term = document.createElement('dt')
+    const desc = document.createElement('dd')
+
+    term.textContent = label
+    //item.textContent = `${label}: `
     try {
-        item.appendChild(value)
+        desc.appendChild(value)
     } catch {
-        item.textContent += value
+        desc.textContent += value
     }
+    item.appendChild(term)
+    item.appendChild(desc)
+
     return item
 }
 
 //Creates a list of stats for each user
 function renderList(data) {
     const userList = document.querySelector('#users')
-    const list = document.createElement('ul')
+    const list = document.createElement('dl')
 
     const labels = Object.keys(data)
     labels.forEach(label => {
